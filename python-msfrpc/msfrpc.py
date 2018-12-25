@@ -41,6 +41,8 @@ class Msfrpc:
     return msgpack.unpackb(data)
 
   def call(self,meth,opts = []):
+    if opts is None:
+      opts = []
     if meth != "auth.login":
       if not self.authenticated:
         raise self.MsfAuthError("MsfRPC: Not Authenticated")
@@ -51,7 +53,6 @@ class Msfrpc:
     opts.insert(0,meth)
     params = self.encode(opts)
     self.client.request("POST",self.uri,params,self.headers)
-    del opts[:]
     resp = self.client.getresponse()
     return self.decode(resp.read()) 
   
