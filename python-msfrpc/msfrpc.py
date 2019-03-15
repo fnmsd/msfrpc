@@ -40,7 +40,7 @@ class Msfrpc:
   def decode(self,data):
     return msgpack.unpackb(data)
 
-  def call(self,meth,opts = ):
+  def call(self,meth,opts = None):
     if opts is None:
       opts = []
     if meth != "auth.login":
