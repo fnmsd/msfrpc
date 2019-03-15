@@ -7,6 +7,7 @@ http://www.trustwave.com
 Modules for communicating with Metasploit MSGRPC
 -----------------------------------------------------
 
+** Fix the bug of call function in python version **
 
 Introduction
 ============
